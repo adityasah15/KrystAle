@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | KRYST-ALE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html" style="text-decoration:none; color:white;">KRYST<span>-ALE</span></a></div>
+                <a href="index.html" class="btn" style="padding: 8px 20px; font-size: 0.8rem;">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="checkout-section">
+        <div class="container">
+            <h1 class="section-title" style="text-align: left; font-size: 2.5rem;">Secure Checkout</h1>
+            
+            <div class="checkout-grid">
+                <div class="glass-panel reveal active">
+                    <h3 style="margin-bottom: 20px; color: var(--primary);">Shipping Details</h3>
+                    <form id="checkoutForm" onsubmit="processOrder(event)">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Shipping Address</label>
+                            <input type="text" placeholder="123 Neon Street, Cyber City" required>
+                        </div>
+                        <div class="checkout-grid" style="gap: 20px; margin-bottom: 0;">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Zip Code</label>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin: 30px 0 20px; color: var(--primary);">Payment</h3>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19">
+                        </div>
+                        <div class="checkout-grid" style="gap: 20px;">
+                            <div class="form-group">
+                                <label>Expiry</label>
+                                <input type="text" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label>CVC</label>
+                                <input type="text" placeholder="123">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">COMPLETE ORDER</button>
+                    </form>
+                </div>
+
+                <div class="glass-panel reveal active" style="height: fit-content;">
+                    <h3 style="margin-bottom: 20px;">Your Order</h3>
+                    
+                    <div class="order-summary-item">
+                        <img src="product-citrus.png" alt="Product" class="summary-img">
+                        <div>
+                            <h4 id="productName">Variety Pack (12-Pack)</h4>
+                            <p style="color: #888; font-size: 0.9rem;">Qty: 1</p>
+                        </div>
+                        <div style="margin-left: auto; font-weight: bold;">$24.99</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Change Flavor Pack</label>
+                        <select id="flavorSelect" onchange="updateImage()">
+                            <option value="citrus">Citrus Spark (12-Pack)</option>
+                            <option value="berry">Midnight Berry (12-Pack)</option>
+                            <option value="mint">Arctic Mint (12-Pack)</option>
+                        </select>
+                    </div>
+
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #aaa;">
+                            <span>Subtotal</span>
+                            <span>$24.99</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #aaa;">
+                            <span>Shipping</span>
+                            <span>$5.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>TOTAL</span>
+                            <span>$29.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+            <h2 style="color: var(--primary); margin-bottom: 15px;">Order Confirmed!</h2>
+            <p style="margin-bottom: 30px; color: #ccc;">Thank you for choosing KRYST-ALE. Your future refreshment is on the way.</p>
+            <button onclick="window.location.href='index.html'" class="btn">Return Home</button>
+        </div>
+    </div>
+
+    <footer id="contact" style="margin-top: auto;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 250px;">
+                    <div class="logo" style="margin-bottom: 20px;">KRYST<span>-ALE</span></div>
+                    <p style="color: #888; max-width: 300px; margin-bottom: 30px;">Redefining the way the world drinks. Pure ingredients for a conscious generation.</p>
+                    
+                    <div class="social-bar">
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul style="color: #888;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.2rem;">📧</span> 
+                            <div><span style="display:block; font-size: 0.8rem; color:#555;">Inquiries</span> hello@krystale.com</div>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.2rem;">📱</span>
+                             <div><span style="display:block; font-size: 0.8rem; color:#555;">Support</span> +91 98200 54321</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html#flavors">Our Flavors</a></li>
+                        <li><a href="index.html#about">The Story</a></li>
+                        <li><a href="index.html#shop">Wholesale</a></li>
+                        <li><a href="index.html">Back to Home</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p style="color:#888; font-size: 0.9rem; margin-bottom: 15px;">Get exclusive launch invites.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button class="btn" style="padding: 10px 15px; border-radius: 5px;">Join</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 Kryst-Ale Beverages. All Rights Reserved. <br> 
+                <span style="opacity: 0.5; font-size: 0.7rem;">Digital Marketing Internship Project | Group SE-IT-B</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
