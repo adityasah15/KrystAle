@@ -1,4 +1,4 @@
-# 🥤 KRYST-ALE — Product Landing Page
+# 🥤 KRYST-ALE
 
 ### 🔗 [**View Live Site → kryst-ale.netlify.app**](https://kryst-ale.netlify.app/)
 
