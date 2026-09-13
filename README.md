@@ -1,4 +1,4 @@
-# 🥤 KRYST-ALE
+# 🥤 KRYSTALE
 
 ### 🔗 [**View Live Site → kryst-ale.netlify.app**](https://kryst-ale.netlify.app/)
 
